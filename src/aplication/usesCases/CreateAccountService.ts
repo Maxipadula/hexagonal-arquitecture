@@ -6,9 +6,9 @@ import AccountDomain from 'src/domain/AccountDomain';
 @Injectable()
 export default class CreateAccountService {
   constructor(
-    @Inject('AccountMysqlRepository')
+    @Inject('account-repository-token')
     private _getAccountRepository: IGetAccountPort,
-    @Inject('AccountMysqlRepository')
+    @Inject('account-repository-token')
     private _createAccountRepository: ICreateAccountPort,
   ) {}
 

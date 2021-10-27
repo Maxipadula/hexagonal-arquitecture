@@ -27,15 +27,14 @@ let CreateAccountService = class CreateAccountService {
         if (!accountDB) {
             accountDB = this._createAccountRepository.create(body);
         }
-        console.log('HEREEEE', JSON.stringify(accountDB));
         const account = new AccountDomain_1.default(accountDB.id, accountDB.attributes);
         return account;
     }
 };
 CreateAccountService = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, common_1.Inject)('AccountMysqlRepository')),
-    __param(1, (0, common_1.Inject)('AccountMysqlRepository')),
+    __param(0, (0, common_1.Inject)('account-repository-token')),
+    __param(1, (0, common_1.Inject)('account-repository-token')),
     __metadata("design:paramtypes", [Object, Object])
 ], CreateAccountService);
 exports.default = CreateAccountService;

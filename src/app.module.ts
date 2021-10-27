@@ -12,7 +12,7 @@ import AccountController from './infraestructure/adapters/web/in/AccountControll
       useClass: CreateAccountService
     },
     {
-      provide: AccountMysqlRepository.name,
+      provide: 'account-repository-token',
       useClass: AccountMysqlRepository
     }
   ],

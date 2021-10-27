@@ -23,7 +23,7 @@ AppModule = __decorate([
                 useClass: CreateAccountService_1.default
             },
             {
-                provide: AccountMysqlRepository_1.default.name,
+                provide: 'account-repository-token',
                 useClass: AccountMysqlRepository_1.default
             }
         ],
