@@ -1,5 +1,8 @@
 export default class AccountDomain {
     private id;
-    private name;
-    create(): any;
+    private cvu;
+    private alias;
+    private data;
+    constructor(id: string, data: any);
+    createCvu(cvu: string, alias: string): AccountDomain;
 }

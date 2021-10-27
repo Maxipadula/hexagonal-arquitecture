@@ -1,3 +1,3 @@
 export default interface ICreateAccountPort {
-    create(body: any): Promise<any>;
+    create(body: any): any;
 }

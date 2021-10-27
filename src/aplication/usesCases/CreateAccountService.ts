@@ -1,6 +1,7 @@
 import { Inject, Injectable } from '@nestjs/common';
 import ICreateAccountPort from '@ports/account/CreateAccountPort';
 import IGetAccountPort from '@ports/account/GetAccountPort';
+import AccountDomain from 'src/domain/AccountDomain';
 
 @Injectable()
 export default class CreateAccountService {
@@ -12,10 +13,13 @@ export default class CreateAccountService {
   ) {}
 
   create(body: any) {
-    let accountDB = this._getAccountRepository.getById('123-123');
+    const { id } = body;
+    let accountDB = this._getAccountRepository.getById(id);
     if (!accountDB) {
       accountDB = this._createAccountRepository.create(body);
     }
-    return accountDB;
+    // Map DB Model --> Account Domain 
+    const account = new AccountDomain(accountDB.id, accountDB.attributes); // mapper Mock
+    return account;
   }
 }

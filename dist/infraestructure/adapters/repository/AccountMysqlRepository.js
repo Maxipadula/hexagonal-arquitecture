@@ -5,7 +5,10 @@ const UpdateAccountPort_1 = require("../../../aplication/ports/account/UpdateAcc
 const GetAccountPort_1 = require("../../../aplication/ports/account/GetAccountPort");
 class AccountMysqlRepository {
     create(body) {
-        return `the result is: ${JSON.stringify(body)}`;
+        return {
+            id: body.id || 1,
+            attributes: body.data || { 'foo': 'bar' }
+        };
     }
     update() {
         return {
@@ -18,9 +21,8 @@ class AccountMysqlRepository {
         };
     }
     getById(id) {
-        return {
-            getById: 'getted by id ok -> ' + id,
-        };
+        console.log('Id Not found');
+        return false;
     }
 }
 exports.default = AccountMysqlRepository;

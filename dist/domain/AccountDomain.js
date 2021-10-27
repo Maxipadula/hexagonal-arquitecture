@@ -1,10 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class AccountDomain {
-    create() {
-        return {
-            id: '123-123-123',
-        };
+    constructor(id, data) {
+        this.id = id;
+        this.data = data;
+    }
+    createCvu(cvu, alias) {
+        this.cvu = cvu;
+        this.alias = alias;
+        return this;
     }
 }
 exports.default = AccountDomain;

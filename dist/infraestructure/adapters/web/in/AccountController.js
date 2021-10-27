@@ -19,7 +19,6 @@ let AccountController = class AccountController {
         this._createAccountService = _createAccountService;
     }
     createAccount(accountBody) {
-        console.log('HEREEEE', JSON.stringify(this._createAccountService));
         return this._createAccountService.create(accountBody);
     }
 };

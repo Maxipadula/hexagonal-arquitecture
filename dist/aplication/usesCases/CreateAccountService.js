@@ -15,17 +15,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
 const CreateAccountPort_1 = require("../ports/account/CreateAccountPort");
 const GetAccountPort_1 = require("../ports/account/GetAccountPort");
+const AccountDomain_1 = require("../../domain/AccountDomain");
 let CreateAccountService = class CreateAccountService {
     constructor(_getAccountRepository, _createAccountRepository) {
         this._getAccountRepository = _getAccountRepository;
         this._createAccountRepository = _createAccountRepository;
     }
     create(body) {
-        let accountDB = this._getAccountRepository.getById('123-123');
+        const { id } = body;
+        let accountDB = this._getAccountRepository.getById(id);
         if (!accountDB) {
             accountDB = this._createAccountRepository.create(body);
         }
-        return accountDB;
+        console.log('HEREEEE', JSON.stringify(accountDB));
+        const account = new AccountDomain_1.default(accountDB.id, accountDB.attributes);
+        return account;
     }
 };
 CreateAccountService = __decorate([

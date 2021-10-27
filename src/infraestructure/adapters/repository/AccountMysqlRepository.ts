@@ -6,7 +6,10 @@ export default class AccountMysqlRepository
   implements ICreateAccountPort, IUpdateAccountPort, IGetAccountPort
 {
   create(body: any): any {
-    return `the result is: ${JSON.stringify(body)}`;
+    return {
+      id: body.id || 1,
+      attributes: body.data || { 'foo': 'bar'}
+    };
   }
 
   update(): any {
@@ -22,8 +25,7 @@ export default class AccountMysqlRepository
   }
 
   getById(id: string): any {
-    return {
-      getById: 'getted by id ok -> ' + id,
-    };
+    console.log('Id Not found')
+    return false;
   }
 }
