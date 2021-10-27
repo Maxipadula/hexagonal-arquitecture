@@ -1,7 +1,8 @@
-import AccountMysqlRepository from 'src/infraestructure/adapters/repository/AccountMysqlRepository';
+import ICreateAccountPort from '@ports/account/CreateAccountPort';
+import IGetAccountPort from '@ports/account/GetAccountPort';
 export default class CreateAccountService {
     private _getAccountRepository;
     private _createAccountRepository;
-    constructor(_getAccountRepository: AccountMysqlRepository, _createAccountRepository: AccountMysqlRepository);
-    create(body: any): any;
+    constructor(_getAccountRepository: IGetAccountPort, _createAccountRepository: ICreateAccountPort);
+    create(body: any): Promise<any>;
 }

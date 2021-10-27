@@ -9,8 +9,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const CreateAccountService_1 = require("./aplication/usesCases/CreateAccountService");
-const app_controller_1 = require("./app.controller");
-const app_service_1 = require("./app.service");
 const AccountMysqlRepository_1 = require("./infraestructure/adapters/repository/AccountMysqlRepository");
 const AccountController_1 = require("./infraestructure/adapters/web/in/AccountController");
 let AppModule = class AppModule {
@@ -18,8 +16,17 @@ let AppModule = class AppModule {
 AppModule = __decorate([
     (0, common_1.Module)({
         imports: [],
-        controllers: [app_controller_1.AppController, AccountController_1.default],
-        providers: [app_service_1.AppService, CreateAccountService_1.default, AccountMysqlRepository_1.default],
+        controllers: [AccountController_1.default],
+        providers: [
+            {
+                provide: CreateAccountService_1.default.name,
+                useClass: CreateAccountService_1.default
+            },
+            {
+                provide: AccountMysqlRepository_1.default.name,
+                useClass: AccountMysqlRepository_1.default
+            }
+        ],
     })
 ], AppModule);
 exports.AppModule = AppModule;

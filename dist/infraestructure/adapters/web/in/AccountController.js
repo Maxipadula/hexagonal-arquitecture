@@ -32,6 +32,7 @@ __decorate([
 ], AccountController.prototype, "createAccount", null);
 AccountController = __decorate([
     (0, common_1.Controller)('account'),
+    __param(0, (0, common_1.Inject)('CreateAccountService')),
     __metadata("design:paramtypes", [CreateAccountService_1.default])
 ], AccountController);
 exports.default = AccountController;

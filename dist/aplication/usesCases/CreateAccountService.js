@@ -8,11 +8,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
 const CreateAccountPort_1 = require("../ports/account/CreateAccountPort");
 const GetAccountPort_1 = require("../ports/account/GetAccountPort");
-const AccountMysqlRepository_1 = require("../../infraestructure/adapters/repository/AccountMysqlRepository");
 let CreateAccountService = class CreateAccountService {
     constructor(_getAccountRepository, _createAccountRepository) {
         this._getAccountRepository = _getAccountRepository;
@@ -28,8 +30,9 @@ let CreateAccountService = class CreateAccountService {
 };
 CreateAccountService = __decorate([
     (0, common_1.Injectable)(),
-    __metadata("design:paramtypes", [AccountMysqlRepository_1.default,
-        AccountMysqlRepository_1.default])
+    __param(0, (0, common_1.Inject)('AccountMysqlRepository')),
+    __param(1, (0, common_1.Inject)('AccountMysqlRepository')),
+    __metadata("design:paramtypes", [Object, Object])
 ], CreateAccountService);
 exports.default = CreateAccountService;
 //# sourceMappingURL=CreateAccountService.js.map
