@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
-const CreateAccountService_1 = require("./aplication/usesCases/CreateAccountService");
+const CreateAccountUseCase_1 = require("./aplication/usesCases/CreateAccountUseCase");
 const AccountMysqlRepository_1 = require("./infraestructure/adapters/repository/AccountMysqlRepository");
 const AccountController_1 = require("./infraestructure/adapters/web/in/AccountController");
 let AppModule = class AppModule {
@@ -19,8 +19,8 @@ AppModule = __decorate([
         controllers: [AccountController_1.default],
         providers: [
             {
-                provide: CreateAccountService_1.default.name,
-                useClass: CreateAccountService_1.default
+                provide: CreateAccountUseCase_1.default.name,
+                useClass: CreateAccountUseCase_1.default
             },
             {
                 provide: 'account-repository-token',

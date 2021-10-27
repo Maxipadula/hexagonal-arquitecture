@@ -2,9 +2,10 @@ import { Inject, Injectable } from '@nestjs/common';
 import ICreateAccountPort from '@ports/account/CreateAccountPort';
 import IGetAccountPort from '@ports/account/GetAccountPort';
 import AccountDomain from 'src/domain/AccountDomain';
+import CreateAccountService from './interfaces/CreateAccountService';
 
 @Injectable()
-export default class CreateAccountService {
+export default class CreateAccountUseCase implements CreateAccountService{
   constructor(
     @Inject('account-repository-token')
     private _getAccountRepository: IGetAccountPort,

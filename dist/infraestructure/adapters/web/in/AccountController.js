@@ -13,7 +13,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
-const CreateAccountService_1 = require("../../../../aplication/usesCases/CreateAccountService");
+const CreateAccountService_1 = require("../../../../aplication/usesCases/interfaces/CreateAccountService");
 let AccountController = class AccountController {
     constructor(_createAccountService) {
         this._createAccountService = _createAccountService;
@@ -31,8 +31,8 @@ __decorate([
 ], AccountController.prototype, "createAccount", null);
 AccountController = __decorate([
     (0, common_1.Controller)('account'),
-    __param(0, (0, common_1.Inject)('CreateAccountService')),
-    __metadata("design:paramtypes", [CreateAccountService_1.default])
+    __param(0, (0, common_1.Inject)('CreateAccountUseCase')),
+    __metadata("design:paramtypes", [Object])
 ], AccountController);
 exports.default = AccountController;
 //# sourceMappingURL=AccountController.js.map

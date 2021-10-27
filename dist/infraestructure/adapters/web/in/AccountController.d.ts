@@ -1,6 +1,6 @@
-import CreateAccountService from 'src/aplication/usesCases/CreateAccountService';
+import CreateAccountService from 'src/aplication/usesCases/interfaces/CreateAccountService';
 export default class AccountController {
     private _createAccountService;
     constructor(_createAccountService: CreateAccountService);
-    createAccount(accountBody: any): import("../../../../domain/AccountDomain").default;
+    createAccount(accountBody: any): any;
 }

@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import CreateAccountService from './aplication/usesCases/CreateAccountService';
+import CreateAccountUseCase from './aplication/usesCases/CreateAccountUseCase';
 import AccountMysqlRepository from './infraestructure/adapters/repository/AccountMysqlRepository';
 import AccountController from './infraestructure/adapters/web/in/AccountController';
 
@@ -8,8 +8,8 @@ import AccountController from './infraestructure/adapters/web/in/AccountControll
   controllers: [AccountController],
   providers: [
     {
-      provide: CreateAccountService.name,
-      useClass: CreateAccountService
+      provide: CreateAccountUseCase.name,
+      useClass: CreateAccountUseCase
     },
     {
       provide: 'account-repository-token',
